@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"fmt"
 	"math"
 	"net/http"
 	"strconv"
@@ -90,7 +91,11 @@ func (st *RoutesAccount) NewCreateRoutes() {
 
 		newString := strings.ReplaceAll(body.Data, " ", "")
 
-		leng := len(newString)
+		fmt.Println(newString)
+
+		leng := len(newString) - 1
+
+		fmt.Println(leng)
 
 		pattern := 2
 
@@ -99,7 +104,7 @@ func (st *RoutesAccount) NewCreateRoutes() {
 		for j := 0; j < 3; j++ {
 			stop := leng - (pattern - 1)
 			for i := 0; i < leng; i++ {
-				if (stop - 1) == i {
+				if stop == i {
 					break
 				}
 				str1 := newString[i:pattern]
